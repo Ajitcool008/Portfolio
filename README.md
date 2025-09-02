@@ -1,6 +1,6 @@
 # 👋 Ajit | Mobile Application Developer | Technical Lead
 
-I am a dynamic professional with over 5 years of experience in **Mobile Application Development**, specializing in **Flutter**. I have successfully led a team as a **Technical Lead** for 2 years, demonstrating proficiency in project management, team leadership, and end-to-end mobile app development.
+I am a dynamic professional with over 6 years of experience in **Mobile Application Development**, specializing in **Flutter**. I have successfully led a team as a **Technical Lead** for 2 years, demonstrating proficiency in project management, team leadership, and end-to-end mobile app development.
 
 ---
 
