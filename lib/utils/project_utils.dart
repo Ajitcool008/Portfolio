@@ -1,18 +1,18 @@
 class ProjectUtils {
   static const List<String> banners = [
-    "assets/projects/snackbar.png",
-    "assets/projects/quranB.png",
-    "assets/projects/medkitB.png",
-    "assets/projects/hereiamB.png",
-    "assets/projects/covidB.png",
+    "assets/projects/pinntagB.png",
+    "assets/projects/interaktB.png",
+    "assets/projects/dumyahB.png",
+    "assets/projects/flockB.png",
+    "assets/projects/safestreetsB.png",
   ];
 
   static const List<String> icons = [
-    "assets/projects/flutter.png",
-    "assets/projects/quran.png",
-    "assets/projects/medkit.png",
-    "assets/projects/hereiam.png",
-    "assets/projects/covid.png",
+    "assets/projects/pinntag.png",
+    "assets/projects/interakt.png",
+    "assets/projects/dumyah.png",
+    "assets/projects/flock.png",
+    "assets/projects/safestreets.png",
   ];
 
   static const List<String> titles = [

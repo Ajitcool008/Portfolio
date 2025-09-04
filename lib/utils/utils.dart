@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
 import 'package:ajit/sections/about/about.dart';
 import 'package:ajit/sections/contact/contact.dart';
 import 'package:ajit/sections/home/home.dart';
 import 'package:ajit/sections/portfolio/portfolio.dart';
 import 'package:ajit/sections/services/services.dart';
 import 'package:ajit/widget/footer.dart';
+import 'package:flutter/material.dart';
 
 class StaticUtils {
   static const String hi = 'assets/hi.gif';

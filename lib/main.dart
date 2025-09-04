@@ -1,15 +1,13 @@
-import 'package:flutter/material.dart';
 import 'package:ajit/configs/core_theme.dart' as theme;
 import 'package:ajit/provider/app_provider.dart';
 import 'package:ajit/provider/drawer_provider.dart';
 import 'package:ajit/provider/scroll_provider.dart';
 import 'package:ajit/sections/main/main_section.dart';
+import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:url_strategy/url_strategy.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  setPathUrlStrategy();
   runApp(const MyApp());
 }
 

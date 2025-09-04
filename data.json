@@ -27,11 +27,11 @@
         },
         {
             "platform": "github",
-            "url": "https://github.com/ajitcool008"
+            "url": "https://github.com/Ajitcool008"
         },
         {
-            "platform": "medium",
-            "url": "https://mhamzadev.medium.com/"
+            "platform": "stackoverflow",
+            "url": "https://stackoverflow.com/users/14265089/ajit-sharma"
         }
     ],
     "aboutMeHeadline": "I'm Ajit Sharma, a Technical Lead, experienced mobile application developer.",
@@ -48,98 +48,67 @@
         {
             "icon": "assets/services/app.png",
             "name": "Mobile App Development",
-            "description": "Android app development via Flutter\n- Splash Screen\n- Firebase Auth/Cloud\n- REST APIs\n- Maps integration and more...!"
+            "description": "Mobile App Development\n- Splash Screen\n- Firebase Auth/Cloud\n- REST APIs\n- Maps Integration and more..."
         },
         {
             "icon": "assets/services/ui.png",
-            "name": "UI/UX Designing",
-            "description": "Modern UI/UX Designing\n- Adobe XD\n- Mobile & Web designs\n- Interactive UI designs\n- Responsiveness\n- Promo Videos and more..!"
+            "name": "Technical Consultancy",
+            "description": "Technical Consultancy\n- Discuss Ideas\n- Mobile & Web Development\n- Interactive UI Discussions\n- Technical Huddles\n- Project Planning and more..."
         },
         {
             "icon": "assets/services/rapid.png",
-            "name": "Rapid Prototyping",
-            "description": "Rapid Prototype via Flutter\n- Working MVP\n- Quick & Working prototype"
+            "name": "Rapid Prototyping via Flutter",
+            "description": "Rapid Prototyping via Flutter\n- Working MVP\n- Quick & Functional Prototype"
         },
         {
             "icon": "assets/services/blog.png",
-            "name": "Technical Blog Writing",
-            "description": "Technical Blog writing\n- Medium blogs\n- Soothing header images\n- SEO friendly\n- Researched topics and more..!"
+            "name": "Code Review",
+            "description": "Code Review\n- Check Code Quality\n- PR or MR Handling\n- Code Merge\n- Standard Approaches and more..."
         },
         {
             "icon": "assets/services/open.png",
             "name": "Open Source - GitHub",
-            "description": "Open source GitHub Projects\n- Awesome README.md\n- Well documented\n- Header images and more...!"
+            "description": "Open Source GitHub Projects\n- Awesome README.md\n- Well Documented\n- Header Images and more..."
         }
     ],
     "hireMe": {
-        "whatsapp": "923460159889"
+        "whatsapp": "447741398352"
     },
     "projects": [
         {
-            "title": "Awesome SnackBar",
-            "iconUrl": "https://drive.google.com/file/d/1EohcZdd5mg5dqHQIn24k_G0dpqQTFYwV/view?usp=sharing",
-            "bannerUrl": "assets/projects/medkitB.png",
-            "description": "A dart package including a wholesome experience of snackbar in your applications."
+            "title": "PinnTag",
+            "iconUrl": "assets/projects/pinntag.png",
+            "bannerUrl": "assets/projects/pinntagB.png",
+            "description": "Explore Your City with Pinntag - Your Passport to Local Adventures!",
+            "link": "https://play.google.com/store/apps/details?id=com.pinntag.pinntagUS"
         },
         {
-            "title": "MedKit",
-            "iconUrl": "https://drive.google.com/file/d/1nr1FHUkACm5cg2MpXKNftUeKw888NcJt/view?usp=sharing",
-            "bannerUrl": "assets/projects/medkitB.png",
-            "description": "A Phramacy app developed using Flutter powered with Firebase as database with Doctor and Patient panels."
+            "title": "Interakt",
+            "iconUrl": "assets/projects/interakt.png",
+            "bannerUrl": "assets/projects/interaktB.png",
+            "description": "Grow your business on WhatsApp with interakt",
+            "link": "https://play.google.com/store/apps/details?id=com.haptik.interakt"
         },
         {
-            "title": "The Holy Qur'an",
-            "iconUrl": "https://drive.google.com/file/d/1jpkSQyGZP5EWPCIfRz-dU9TARXHN2P5o/view?usp=sharing",
-            "bannerUrl": "assets/projects/quranB.png",
-            "description": "Application of Holy book of Muslims, Al-Qur'an. Developed using Flutter. Powered with live RestAPI given in README.md"
+            "title": "Dumyah",
+            "iconUrl": "assets/projects/dumyah.png",
+            "bannerUrl": "assets/projects/dumyahB.png",
+            "description": "Welcome to Dumyah, the ultimate online shopping destination for women in Jordan. ",
+            "link": "https://play.google.com/store/apps/details?id=com.dumyah.app"
         },
         {
-            "title": "Here I Am",
-            "iconUrl": "assets/projects/hereiam.png",
-            "bannerUrl": "assets/projects/hereiamB.png",
-            "description": "Here I am is an Alert app that Sends alert SMS holding your location (Address and Google Maps) to your loved ones."
+            "title": "Flock: Hangout & Meetup app",
+            "iconUrl": "assets/projects/flock.png",
+            "bannerUrl": "assets/projects/flockB.png",
+            "description": "Flock is a local hangout app for making real-life connections in a fun and spontaneous way.",
+            "link": "https://play.google.com/store/apps/details?id=com.livey.mobile"
         },
         {
-            "title": "COIVD 19 - Tracker",
-            "iconUrl": "assets/projects/covid.png",
-            "bannerUrl": "assets/projects/covidB.png",
-            "description": "A live trakcer for COVID19 stats across the Globe and my Home country Pakistan. It uses APIs so the data is live."
-        },
-        {
-            "title": "Messenger Chat Head UI",
-            "iconUrl": "assets/projects/messenger.png",
-            "bannerUrl": "",
-            "description": "Tried to clone the famous Chat Heads by Facebook Messenger using Flutter. Its basically in-app not exactly like the original chat head."
-        },
-        {
-            "title": "flutter.dev - Flutter Web",
-            "iconUrl": "assets/projects/flutter.png",
-            "bannerUrl": "",
-            "description": "Flutter Official Site clone using Flutter Web. Try the live site here. For the time being its not responsive fully so there might be responsiveness issues."
-        },
-        {
-            "title": "Earbender",
-            "iconUrl": "assets/projects/earbender.png",
-            "bannerUrl": "",
-            "description": "A concept of Music App developed using Flutter. Having functionality of playing Audio."
-        },
-        {
-            "title": "File Transfer Protocol",
-            "iconUrl": "assets/projects/java.png",
-            "bannerUrl": "",
-            "description": "A simple GUI based Java application that sends file from Client to Server but not the other way around."
-        },
-        {
-            "title": "My Order",
-            "iconUrl": "assets/projects/android.png",
-            "bannerUrl": "",
-            "description": "A concept app for self-services at various restaurants now a days. More like a Restaurant Ordering System."
-        },
-        {
-            "title": "Hidev",
-            "iconUrl": "assets/services/open.png",
-            "bannerUrl": "",
-            "description": "Its my end semester project. The whole design I developed here is an inspiration from my favortie Flutter Developer Marcin Szałek and his blog Fidev."
+            "title": "SafeStreets",
+            "iconUrl": "assets/projects/safestreets.png",
+            "bannerUrl": "assets/projects/safestreetsB.png",
+            "description": "Welcome, Fellow Crimefighter! SafeStreets is the Social Safety Network, that connects neighbours and keeps your family and your home safe from people that would do you harm. It's Neighbourhood Watch for the 21st Century",
+            "link": "https://play.google.com/store/apps/details?id=uk.co.streetsafe.mobile"
         }
     ],
     "contact": [
@@ -149,7 +118,7 @@
         },
         {
             "param": "phone",
-            "value": "+44 7741398352"
+            "value": "(+44) 7741398352"
         },
         {
             "param": "email",
