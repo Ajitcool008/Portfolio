@@ -1,49 +1,52 @@
 part of 'services.dart';
 
-class ServiceDesktop extends StatefulWidget {
+class ServiceDesktop extends StatelessWidget {
   const ServiceDesktop({super.key});
 
   @override
-  ServiceDesktopState createState() => ServiceDesktopState();
-}
-
-class ServiceDesktopState extends State<ServiceDesktop> {
-  GlobalKey<FlipCardState> cardKey = GlobalKey<FlipCardState>();
-
-  @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
 
     return Container(
-      padding: Space.hf(4),
+      padding: Space.h,
       child: Column(
         children: [
-          const CustomSectionHeading(
-            text: '\nWhat I can do?',
-          ),
-          const CustomSectionSubHeading(
-            text: 'I may not be perfect but surely I\'m of some use :)\n\n',
-          ),
-          Space.y!,
+          Space.y2!,
+          Text(
+            'FEATURES',
+            style: AppText.l1!.copyWith(
+              color: AppTheme.c!.primary,
+              letterSpacing: 2,
+              fontWeight: FontWeight.bold,
+            ),
+          ).animate().fadeIn(),
+          Space.y1!,
+          Text(
+            'What I Do',
+            style: AppText.h1b!.copyWith(
+              color: AppTheme.c!.text,
+              fontSize: AppDimensions.normalize(25),
+              fontFamily: 'Montserrat',
+            ),
+          ).animate().fadeIn(delay: 200.ms),
+          Space.y1!,
           Wrap(
-            spacing: width * 0.05,
-            runSpacing: height * 0.05,
+            spacing: width * 0.03,
+            runSpacing: width * 0.03,
             alignment: WrapAlignment.center,
-            crossAxisAlignment: WrapCrossAlignment.center,
             children: ServicesUtils.servicesIcons
                 .asMap()
                 .entries
                 .map(
                   (e) => _ServiceCard(
-                    serviceIcon: ServicesUtils.servicesIcons[e.key],
+                    serviceIcon: e.value,
                     serviceTitle: ServicesUtils.servicesTitles[e.key],
-                    serviceDescription:
-                        ServicesUtils.servicesDescription[e.key],
+                    serviceDescription: ServicesUtils.servicesDescription[e.key],
                   ),
                 )
                 .toList(),
-          )
+          ),
+          Space.y2!,
         ],
       ),
     );

@@ -1,42 +1,39 @@
 import 'package:flutter/material.dart';
 
-const fontFamily = 'Poppins';
+const fontFamily = 'Montserrat';
 
 final themeLight = ThemeData(
-  primaryColorLight: const Color(0xffC0392B),
+  primaryColorLight: const Color(0xff00F2FF),
   brightness: Brightness.light,
-  primaryColor: const Color(0xffC0392B),
+  primaryColor: const Color(0xff00F2FF),
   highlightColor: Colors.black,
   canvasColor: Colors.white,
   fontFamily: fontFamily,
   splashColor: Colors.transparent,
   scaffoldBackgroundColor: Colors.white,
   colorScheme: ColorScheme.fromSwatch(
-    primarySwatch: Colors.red,
-  )
-      .copyWith(
-        secondary: Colors.black,
-        brightness: Brightness.light,
-        surface: Colors.white,
-      )
-      .copyWith(
-        surface: Colors.white,
-      ),
+    primarySwatch: Colors.cyan,
+  ).copyWith(
+    secondary: const Color(0xff7000FF),
+    brightness: Brightness.light,
+    surface: Colors.white,
+  ),
 );
 
 final themeDark = ThemeData(
   brightness: Brightness.dark,
-  primaryColorDark: const Color(0xffC0392B),
-  primaryColor: const Color(0xffC0392B),
-  highlightColor: const Color(0xffC0392B),
-  canvasColor: Colors.white,
+  primaryColorDark: const Color(0xff00F2FF),
+  primaryColor: const Color(0xff00F2FF),
+  highlightColor: const Color(0xff00F2FF),
+  canvasColor: Colors.black,
   fontFamily: fontFamily,
   splashColor: Colors.transparent,
-  scaffoldBackgroundColor: Colors.black,
+  scaffoldBackgroundColor: const Color(0xff020202),
   colorScheme: ColorScheme.fromSwatch(
-    primarySwatch: Colors.red,
+    primarySwatch: Colors.cyan,
     brightness: Brightness.dark,
   ).copyWith(
-    surface: Colors.grey[800],
+    secondary: const Color(0xff7000FF),
+    surface: const Color(0xff121212),
   ),
 );

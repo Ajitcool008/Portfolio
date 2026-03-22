@@ -23,21 +23,29 @@ class NavBarActionButton extends StatelessWidget {
       duration: const Duration(milliseconds: 250),
       child: Container(
         margin: Space.h!,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(5.0),
-        ),
-        child: MaterialButton(
-          splashColor: Colors.white54,
-          highlightColor: Colors.white54,
-          hoverColor: AppTheme.c!.primary,
+        child: TextButton(
           onPressed: () {
             scrollProvider.scroll(index);
           },
+          style: TextButton.styleFrom(
+            foregroundColor: AppTheme.c!.textSub,
+          ).copyWith(
+            foregroundColor: WidgetStateProperty.resolveWith<Color>(
+              (Set<WidgetState> states) {
+                if (states.contains(WidgetState.hovered)) return AppTheme.c!.primary!;
+                return AppTheme.c!.textSub!;
+              },
+            ),
+          ),
           child: Padding(
             padding: Space.all(0.5, 0.45),
             child: Text(
-              label,
-              style: AppText.l1,
+              label.toUpperCase(),
+              style: AppText.l1!.copyWith(
+                fontWeight: FontWeight.w500,
+                letterSpacing: 1.2,
+                fontFamily: 'Montserrat',
+              ),
             ),
           ),
         ),

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ajit/configs/app_typography.dart';
-import 'package:ajit/provider/app_provider.dart';
-import 'package:provider/provider.dart';
+import 'package:ajit/configs/configs.dart';
 
 class AboutMeData extends StatelessWidget {
   final String data;
@@ -14,25 +12,27 @@ class AboutMeData extends StatelessWidget {
     required this.information,
     this.alignment,
   });
+  
   @override
   Widget build(BuildContext context) {
-    final appProvider = Provider.of<AppProvider>(context);
-
     return Align(
-      alignment: alignment ?? Alignment.center,
+      alignment: alignment ?? Alignment.centerLeft,
       child: RichText(
         text: TextSpan(
           children: [
             TextSpan(
               text: "$data: ",
               style: AppText.l1b!.copyWith(
-                color: appProvider.isDark ? Colors.white : Colors.black,
+                color: AppTheme.c!.text,
+                fontFamily: 'Montserrat',
+                fontWeight: FontWeight.bold,
               ),
             ),
             TextSpan(
               text: " $information\n",
               style: AppText.l1!.copyWith(
-                color: appProvider.isDark ? Colors.white : Colors.black,
+                color: AppTheme.c!.textSub,
+                fontFamily: 'Montserrat',
               ),
             ),
           ],

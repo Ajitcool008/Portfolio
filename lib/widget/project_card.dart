@@ -1,9 +1,8 @@
+import 'package:ajit/widget/neumorphic_container.dart';
 import 'package:flutter/material.dart';
 import 'package:ajit/configs/configs.dart';
 import 'package:ajit/constants.dart';
-import 'package:ajit/provider/app_provider.dart';
-
-import 'package:provider/provider.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 class ProjectCard extends StatefulWidget {
   final String? banner;
@@ -11,17 +10,16 @@ class ProjectCard extends StatefulWidget {
   final String? projectIcon;
   final String projectTitle;
   final String projectDescription;
-  final IconData? projectIconData;
 
   const ProjectCard({
     super.key,
     this.banner,
     this.projectIcon,
     this.projectLink,
-    this.projectIconData,
     required this.projectTitle,
     required this.projectDescription,
   });
+
   @override
   ProjectCardState createState() => ProjectCardState();
 }
@@ -31,131 +29,79 @@ class ProjectCardState extends State<ProjectCard> {
 
   @override
   Widget build(BuildContext context) {
-    final appProvider = Provider.of<AppProvider>(context);
-
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
-
     return InkWell(
-      hoverColor: Colors.transparent,
-      splashColor: Colors.transparent,
-      highlightColor: Colors.transparent,
-      onTap: widget.projectLink == null
-          ? () {}
-          : () => openURL(
-                widget.projectLink!,
-              ),
-      onHover: (isHovering) {
-        if (isHovering) {
-          setState(() {
-            isHover = true;
-          });
-        } else {
-          setState(() {
-            isHover = false;
-          });
-        }
-      },
-      child: Container(
-        margin: Space.h,
-        padding: Space.all(),
+      onTap: widget.projectLink == null ? () {} : () => openURL(widget.projectLink!),
+      onHover: (val) => setState(() => isHover = val),
+      child: NeumorphicContainer(
         width: AppDimensions.normalize(150),
-        height: AppDimensions.normalize(90),
-        decoration: BoxDecoration(
-          color: appProvider.isDark ? Colors.grey[900] : Colors.white,
-          borderRadius: BorderRadius.circular(10),
-          boxShadow: isHover
-              ? [
-                  BoxShadow(
-                    color: AppTheme.c!.primary!.withAlpha(100),
-                    blurRadius: 12.0,
-                    offset: const Offset(0.0, 0.0),
-                  )
-                ]
-              : [
-                  BoxShadow(
-                    color: Colors.black.withAlpha(100),
-                    blurRadius: 12.0,
-                    offset: const Offset(0.0, 0.0),
-                  )
-                ],
-        ),
-        child: Stack(
-          fit: StackFit.expand,
+        height: AppDimensions.normalize(150),
+        padding: 25,
+        borderRadius: 20,
+        blur: 20,
+        spread: 1,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                widget.projectIcon != null
-                    ? (width > 1135 || width < 950)
-                        ? Image.asset(
-                            widget.projectIcon!,
-                            height: height * 0.05,
-                          )
-                        : Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Image.asset(
-                                widget.projectIcon!,
-                                height: height * 0.03,
-                              ),
-                              SizedBox(
-                                width: width * 0.01,
-                              ),
-                              Text(
-                                widget.projectTitle,
-                                style: AppText.b2b,
-                                textAlign: TextAlign.center,
-                              ),
-                            ],
-                          )
-                    : Container(),
-                widget.projectIconData != null
-                    ? Icon(
-                        widget.projectIconData,
-                        color: AppTheme.c!.primary!,
-                        size: height * 0.1,
-                      )
-                    : Container(),
-                (width > 1135 || width < 950)
-                    ? SizedBox(
-                        height: height * 0.02,
-                      )
-                    : const SizedBox(),
-                (width > 1135 || width < 950)
-                    ? Text(
-                        widget.projectTitle,
-                        style: AppText.b2b,
-                        textAlign: TextAlign.center,
-                      )
-                    : Container(),
-                SizedBox(
-                  height: height * 0.01,
+            // Image with hover zoom
+            Expanded(
+              flex: 6,
+              child: Container(
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
                 ),
-                Text(
-                  widget.projectDescription,
-                  textAlign: TextAlign.center,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Stack(
+                    children: [
+                      if (widget.banner != null)
+                        Image.asset(
+                          widget.banner!,
+                          fit: BoxFit.cover,
+                          width: double.infinity,
+                          height: double.infinity,
+                        ).animate(target: isHover ? 1 : 0).scale(
+                          begin: const Offset(1, 1),
+                          end: const Offset(1.1, 1.1),
+                          duration: 400.ms,
+                        ),
+                    ],
+                  ),
                 ),
-                SizedBox(
-                  height: height * 0.01,
-                ),
-              ],
-            ),
-            AnimatedOpacity(
-              duration: const Duration(milliseconds: 400),
-              opacity: isHover ? 0.0 : 1.0,
-              child: FittedBox(
-                fit: BoxFit.fill,
-                child: widget.banner != null
-                    ? Image.asset(
-                        widget.banner!,
-                      )
-                    : Container(),
               ),
+            ),
+            Space.y1!,
+            // Category (Hardcoded or pulled from title if available, usually project type)
+            Text(
+              "DESIGN / APPLICATION",
+              style: AppText.l2!.copyWith(
+                color: AppTheme.c!.primary,
+                letterSpacing: 1.5,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Space.y!,
+            Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    widget.projectTitle,
+                    style: AppText.h3b!.copyWith(
+                      color: isHover ? AppTheme.c!.primary : AppTheme.c!.text,
+                      fontFamily: 'Montserrat',
+                    ),
+                  ),
+                ),
+                Icon(
+                  Icons.arrow_outward_rounded,
+                  color: isHover ? AppTheme.c!.primary : AppTheme.c!.text,
+                  size: 20,
+                ).animate(target: isHover ? 1 : 0).move(begin: const Offset(-5, 5), end: const Offset(0, 0)),
+              ],
             ),
           ],
         ),
       ),
-    );
+    ).animate().fadeIn(duration: 500.ms).scale(begin: const Offset(0.98, 0.98));
   }
 }

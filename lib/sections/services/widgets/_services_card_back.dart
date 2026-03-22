@@ -53,7 +53,7 @@ class _ServiceCardBackWidget extends StatelessWidget {
                             child: Row(
                               mainAxisSize: MainAxisSize.min,
                               children: [
-                                const Icon(
+                                Icon(
                                   FontAwesomeIcons.whatsapp,
                                   color: Colors.white,
                                 ),

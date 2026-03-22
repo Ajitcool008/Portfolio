@@ -49,6 +49,7 @@ class StaticUtils {
 
 class BodyUtils {
   static const List<Widget> views = [
+    SizedBox(height: 120),
     HomePage(),
     About(),
     Services(),

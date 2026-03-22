@@ -9,16 +9,20 @@ import 'package:ajit/utils/navbar_utils.dart';
 import 'package:ajit/utils/utils.dart';
 import 'package:ajit/widget/navbar_actions_button.dart';
 import 'package:ajit/widget/navbar_logo.dart';
+import 'package:ajit/widget/neumorphic_container.dart';
 import 'package:provider/provider.dart';
 
 import 'package:universal_html/html.dart' as html;
 import 'package:flutter/material.dart';
 import 'package:ajit/constants.dart';
 import 'package:ajit/widget/arrow_on_top.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'dart:ui';
 
 part 'widgets/_navbar_desktop.dart';
 part 'widgets/_mobile_drawer.dart';
 part 'widgets/_body.dart';
+part 'widgets/_body_background.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -37,16 +41,15 @@ class _MainPageState extends State<MainPage> {
       key: drawerProvider.key,
       extendBodyBehindAppBar: true,
       drawer: !Responsive.isDesktop(context) ? const _MobileDrawer() : null,
-      body: SafeArea(
-        child: Stack(
-          children: [
-            const _Body(),
-            const ArrowOnTop(),
-            Responsive.isTablet(context) || Responsive.isMobile(context)
-                ? const _NavBarTablet()
-                : const _NavbarDesktop(),
-          ],
-        ),
+      body: Stack(
+        children: [
+          const _BodyBackground(),
+          const _Body(),
+          const ArrowOnTop(),
+          Responsive.isTablet(context) || Responsive.isMobile(context)
+              ? const _NavBarTablet()
+              : const _NavbarDesktop(),
+        ],
       ),
     );
   }

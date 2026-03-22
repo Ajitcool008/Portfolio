@@ -10,7 +10,7 @@ class About extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Responsive(
-      tablet: AboutTab(),
+      tablet: AboutTablet(),
       mobile: AboutMobile(),
       desktop: AboutDesktop(),
     );

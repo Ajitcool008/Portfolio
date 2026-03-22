@@ -5,63 +5,54 @@ class _NavbarDesktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final appProvider = Provider.of<AppProvider>(context);
-
     return Container(
-      padding: Space.all(),
-      color: appProvider.isDark ? Colors.black : Colors.white,
-      child: Row(
-        children: [
-          const NavBarLogo(),
-          Space.xm!,
-          ...NavBarUtils.names.asMap().entries.map(
-                (e) => NavBarActionButton(
-                  label: e.value,
-                  index: e.key,
-                ),
-              ),
-          EntranceFader(
-            offset: const Offset(0, -10),
-            delay: const Duration(milliseconds: 100),
-            duration: const Duration(milliseconds: 250),
-            child: MaterialButton(
-              hoverColor: AppTheme.c!.primary!.withAlpha(150),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(5.0),
-                side: BorderSide(
-                  color: AppTheme.c!.primary!,
-                ),
-              ),
-              onPressed: () {
-                html.window.open(
-                  StaticUtils.resume,
-                  "pdf",
-                );
-              },
-              child: Padding(
-                padding: Space.all(1.25, 0.45),
-                child: Text(
-                  'RESUME',
-                  style: AppText.l1b,
-                ),
-              ),
-            ),
-          ),
-          Space.x!,
-          Switch(
-            inactiveTrackColor: Colors.grey,
-            value: appProvider.isDark,
-            onChanged: (value) {
-              appProvider.setTheme(
-                !value ? ThemeMode.light : ThemeMode.dark,
-              );
-            },
-            activeColor: AppTheme.c!.primary!,
-          ),
-          Space.x!,
-        ],
+      padding: EdgeInsets.symmetric(
+        horizontal: AppDimensions.normalize(30),
+        vertical: AppDimensions.normalize(15),
       ),
-    );
+      child: NeumorphicContainer(
+        padding: 0,
+        borderRadius: 50,
+        blur: 15,
+        spread: 1,
+        offset: const Offset(5, 5),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
+          child: Row(
+            children: [
+              const NavBarLogo(),
+              const Spacer(),
+              ...NavBarUtils.names.asMap().entries.map(
+                    (e) => NavBarActionButton(
+                      label: e.value,
+                      index: e.key,
+                    ),
+                  ),
+              const SizedBox(width: 20),
+              // Neumorphic Resume Button
+              InkWell(
+                onTap: () => html.window.open(StaticUtils.resume, "pdf"),
+                borderRadius: BorderRadius.circular(10),
+                child: NeumorphicContainer(
+                  padding: 12,
+                  borderRadius: 10,
+                  spread: 1,
+                  blur: 10,
+                  offset: const Offset(4, 4),
+                  child: Text(
+                    'RESUME',
+                    style: AppText.l1b!.copyWith(
+                      color: AppTheme.c!.primary,
+                      letterSpacing: 1.5,
+                    ),
+                  ),
+                ),
+              ).animate().fadeIn(delay: 400.ms).scale(),
+            ],
+          ),
+        ),
+      ),
+    ).animate().slideY(begin: -1, duration: 800.ms, curve: Curves.easeOut);
   }
 }
 
@@ -72,26 +63,30 @@ class _NavBarTablet extends StatelessWidget {
   Widget build(BuildContext context) {
     final drawerProvider = Provider.of<DrawerProvider>(context);
 
-    return Padding(
-      padding: Space.v!,
-      child: Row(
-        children: [
-          Space.x1!,
-          IconButton(
-            highlightColor: Colors.white54,
-            splashRadius: AppDimensions.normalize(10),
-            onPressed: () {
-              drawerProvider.key.currentState!.openDrawer();
-            },
-            icon: const Icon(
-              Icons.menu,
-            ),
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      child: NeumorphicContainer(
+        padding: 0,
+        borderRadius: 50,
+        blur: 10,
+        spread: 1,
+        offset: const Offset(4, 4),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+          child: Row(
+            children: [
+              IconButton(
+                onPressed: () => drawerProvider.key.currentState!.openDrawer(),
+                icon: Icon(Icons.menu, color: AppTheme.c!.text),
+              ),
+              const Spacer(),
+              const NavBarLogo(),
+              const Spacer(),
+              const SizedBox(width: 48), // Padding equivalent to menu button
+            ],
           ),
-          Space.xm!,
-          const NavBarLogo(),
-          Space.x1!,
-        ],
+        ),
       ),
-    );
+    ).animate().slideY(begin: -1, duration: 800.ms, curve: Curves.easeOut);
   }
 }

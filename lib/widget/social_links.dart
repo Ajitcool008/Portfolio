@@ -1,47 +1,46 @@
+import 'package:ajit/widget/neumorphic_container.dart';
 import 'package:flutter/material.dart';
 import 'package:ajit/configs/configs.dart';
 import 'package:ajit/constants.dart';
-import 'package:ajit/provider/app_provider.dart';
 import 'package:ajit/responsive/responsive.dart';
 import 'package:ajit/utils/utils.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 class SocialLinks extends StatelessWidget {
   const SocialLinks({
     super.key,
   });
+
   @override
   Widget build(BuildContext context) {
-    final appProvider = Provider.of<AppProvider>(context);
     return Wrap(
+      spacing: AppDimensions.normalize(10),
       runSpacing: AppDimensions.normalize(10),
-      alignment: WrapAlignment.center,
+      alignment: WrapAlignment.start,
       children: StaticUtils.socialIconURL
           .asMap()
           .entries
-          .map(
-            (e) => Padding(
-              padding:
-                  Responsive.isMobile(context) ? Space.all(0.2, 0) : Space.h!,
-              child: IconButton(
-                highlightColor: Colors.white54,
-                splashRadius: AppDimensions.normalize(12),
-                icon: Image.network(
+          .map<Widget>(
+            (e) => InkWell(
+              onTap: () => openURL(StaticUtils.socialLinks[e.key]),
+              borderRadius: BorderRadius.circular(15),
+              child: NeumorphicContainer(
+                padding: 12,
+                borderRadius: 12,
+                spread: 1.5,
+                blur: 15,
+                offset: const Offset(6, 6),
+                child: Image.network(
                   e.value,
-                  color: appProvider.isDark ? Colors.white : Colors.black,
-                  height: Responsive.isMobile(context)
-                      ? AppDimensions.normalize(10)
-                      : AppDimensions.normalize(12),
+                  color: AppTheme.c!.text,
+                  height: AppDimensions.normalize(12),
+                  width: AppDimensions.normalize(12),
                 ),
-                iconSize: Responsive.isMobile(context)
-                    ? AppDimensions.normalize(10)
-                    : AppDimensions.normalize(15),
-                onPressed: () => openURL(
-                  StaticUtils.socialLinks[e.key],
-                ),
-                hoverColor: AppTheme.c!.primary!,
               ),
-            ),
+            ).animate(onPlay: (c) => c.repeat(reverse: true))
+              .shimmer(delay: (e.key * 200).ms, duration: 3.seconds, color: AppTheme.c!.primary!.withOpacity(0.1))
+              .fadeIn(delay: (e.key * 100).ms)
+              .scale(begin: const Offset(0.95, 0.95)),
           )
           .toList(),
     );
